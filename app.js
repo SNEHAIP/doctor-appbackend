@@ -21,7 +21,13 @@ app.post("/add",(req,res)=>{
     res.send({"status":"success"})
 })
 
-
+app.post("/view",(req,res)=>{
+    doctormodel.find().then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch().finally()
+})
 
 app.listen(8080,()=>{
     console.log("server started")
